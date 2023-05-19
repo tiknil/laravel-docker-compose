@@ -10,6 +10,9 @@ services:
       - ./logs/nginx:/var/log/nginx
       - ./nginx:/etc/nginx/conf.d
     working_dir: /var/www
+    networks:
+      - skipper_network
+      - default
 
   php-fpm:
     build:
@@ -40,7 +43,8 @@ services:
 
 networks:
   default:
-    name: skipper_network
+    driver: bridge
+  skipper_network:
     external: true
 
 volumes:
