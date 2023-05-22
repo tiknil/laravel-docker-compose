@@ -33,6 +33,8 @@ services:
       - mysql:/var/lib/mysql
     expose:
       - 3306
+    ports:
+      - ${MAC_DB_PORT}:3306
 
   # redis:
   #   image: 'redis:alpine'
