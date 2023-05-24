@@ -14,6 +14,14 @@ A summary:
 | PC | localhost | MAC_DB_PORT |
 | Docker | mysql | 3306 |
 
+## Nginx folder
+
+nginx folder contains a `default.conf` file, mapped inside the `/etc/nginx/conf.d` container directory, which is the nginx equivalent of apache sites-enabled.
+
+## Mysql folder
+
+mysql folder contains a `init.sql` file, that is run by MySQL at every startup.
+
 ## Network
 
 Networking is a bit complex. By default, all services in a docker compose file are placed on the same virtual docker network and can communicate with each other. The default key in the network section does exacty that.
