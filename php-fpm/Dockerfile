@@ -22,6 +22,7 @@ RUN apt-get update \
     libssl-dev \
     libmcrypt-dev \
     git \
+    cron \
     zip \
     unzip \
   && rm -rf /var/lib/apt/lists/*
@@ -43,6 +44,10 @@ RUN docker-php-ext-configure gd \
     --with-webp \
     --with-freetype=/usr/include/freetype2 && \
     docker-php-ext-install gd
+
+# PCNTL extension (needed by horizon)
+RUN docker-php-ext-install pcntl \
+    && docker-php-ext-enable pcntl
 
 #############
 # PHP Redis #
